@@ -24,6 +24,11 @@
     align-items: center;
 }
 
+.post__btns {
+    display: flex;
+    flex-direction: column;
+}
+
 .remove-btn {
     margin-right: 0.5rem;
 }
@@ -67,7 +72,7 @@
     height: 50px;
     width: 100vw;
     display: flex;
-    align-items:center;
+    align-items: center;
     padding: 0 15px;
     background: lightgray;
 }

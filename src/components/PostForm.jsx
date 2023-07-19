@@ -1,18 +1,18 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import MyInput from "./UI/input/MyInput";
 import MyButton from "./UI/button/MyButton";
 
-const PostForm = ({create}) => {
+const PostForm = ({ create }) => {
 
     const [post, setPost] = useState({ title: '', body: '' })
 
     function addNewPost(e) {
         e.preventDefault();
-        const newPost = { ...post, id: Date.now()}
+        const newPost = { ...post, id: Date.now() }
         //callback function due to not to pass props to App.js
         create(newPost)
         setPost({ title: '', body: '' })
-      }
+    }
 
     return (
         <form>

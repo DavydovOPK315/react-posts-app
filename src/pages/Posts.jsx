@@ -1,17 +1,3 @@
-// import React, { useEffect, useState} from 'react';
-// import '../styles/App.css';
-// import PostList from '../components/PostList';
-// import MyButton from '../components/UI/button/MyButton';
-// import PostForm from '../components/PostForm';
-// import PostFIlter from '../components/PostFIlter';
-// import MyModal from '../components/UI/MyModal/MyModal';
-// import { usePosts } from '../hooks/usePosts';
-// import PostService from '../API/PostService';
-// import Loader from '../components/UI/Loader/Loader';
-// import { useFetching } from '../hooks/useFetching';
-// import { getPageCount } from '../utils/pages';
-// import Pagination from '../components/UI/pagination/Pagination';
-
 import React, { useEffect, useState } from "react";
 import { usePosts } from "../hooks/usePosts";
 import { useFetching } from "../hooks/useFetching";
@@ -25,6 +11,7 @@ import Loader from "../components/UI/Loader/Loader";
 import MyButton from "../components/UI/button/MyButton";
 import { getPageCount } from '../utils/pages';
 import '../styles/App.css';
+import MySelect from "../components/UI/select/MySelect";
 
 
 function Posts() {
@@ -45,11 +32,10 @@ function Posts() {
 
   useEffect(() => {
     fetchPosts(limit, page);
-  }, [])
+  }, [limit])
 
   const changePage = (page) => {
     setPage(page);
-    console.log(page);
     fetchPosts(limit, page);
   }
 
@@ -74,6 +60,18 @@ function Posts() {
       <PostFilter
         filter={filter}
         setFilter={setFilter}
+      />
+      <MySelect
+        value={limit}
+        onChange={value => setLimit(value)}
+        defaultValue={'Count of posts on the page'}
+        options={[
+          { value: 5, name: '5' },
+          { value: 10, name: '10' },
+          { value: 25, name: '25' },
+          { value: -1, name: 'All' },
+        ]
+        }
       />
       {postError &&
         <h1> Occured error ${postError}</h1>}

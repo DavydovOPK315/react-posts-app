@@ -1,12 +1,6 @@
-// rafce
-
 import React, { useState } from 'react';
 
-// component
-// return jsx
-// write first symbol with Uppercase
-// const Counter = () => {
-const Counter = function () {
+const Counter = () => {
 
     // distuctorization
     const [likes, setLikes] = useState(0);
